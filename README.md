@@ -57,10 +57,9 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Stoupignan Blog with RoR] <a name="about-project"></a>
+# 📖 Recipe-app <a name="about-project"></a>
 
-**[First Set-up with Ruby on Rails]** is a test to put our knowledge into practice by applying and installing the rails framework.
-
+The Recipe app keeps track of all your recipes, ingredients, and inventory. It will allow you to save ingredients, keep track of what you have, create recipes, and generate a shopping list based on what you have and what you are missing from a recipe. Also, since sharing recipes is an important part of cooking the app should allow you to make them public so anyone can access them.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -131,7 +130,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
 
 ```sh
-  git clone https://github.com/ErikStoupignan/setup-ror-project.git
+  git clone https://github.com/ErikStoupignan/Recipe-app.git
   cd setup-ror-project
 ```
 
