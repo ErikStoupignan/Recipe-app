@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby "3.1.2"
-ruby '3.1.3'
+ruby '3.1.2'
+# ruby '3.1.3'
 
 # This Gem is for authorizathe users and control login
 gem 'devise'
