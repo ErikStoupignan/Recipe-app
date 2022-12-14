@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-#   before_action :authenticate_user!
+  #   before_action :authenticate_user!
 
   def index
     @foods = Food.all
@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     if @food.save
       redirect_to foods_path,
-        notice: 'Food was added successfully.'
+                  notice: 'Food was added successfully.'
     else
       render :new, alert: 'Failed to add food'
     end
@@ -23,7 +23,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @food.destroy
     redirect_to foods_path,
-        notice: 'Food was successfully destroyed.'
+                notice: 'Food was successfully destroyed.'
   end
 
   def food_params
