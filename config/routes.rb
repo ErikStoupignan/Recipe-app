@@ -5,12 +5,16 @@ Rails.application.routes.draw do
   end
 
   root 'public_recipes#index'
-  resources :public_recipes, only: [:index]
   resources :foods, only: [:index]
-  resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :recipe_foods, only: [:new, :create, :destroy]
+  resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  resources :public_recipes, only: [:index]
+  resources :recipe_foods, only: [:new, :create, :destroy]
+
+  resources :recipes, only: [:index, :show, :new, :create, :destroy] do
+    resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
   end
 
-  resources :users, only: [:index, :show] do
+  resources :foods, only: [:new, :create, :destroy] do
   end
 end
