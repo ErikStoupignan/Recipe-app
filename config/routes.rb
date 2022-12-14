@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   end
 
   root 'public_recipes#index'
+  resources :users, only: [:index, :show]
+
   resources :foods, only: [:index]
   resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 

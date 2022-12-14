@@ -5,5 +5,5 @@ class Food < ApplicationRecord
   validates :price, numericality: { only_float: true, greater_than: 0, message: 'Price must be greater than 0' }
 
   belongs_to :user
-  has_many :recipe_foods, dependent: :destroy
+  has_many :recipe_foods, dependent: :delete_all
 end
