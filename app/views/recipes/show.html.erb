@@ -60,9 +60,20 @@
       <% end %>
 
       <tbody>
-        <% @recipe_foods.each do |recipe| %>
+        <% @recipe.recipe_foods.each do |recipe| %>
           <tr>
-            <td><%= recipe.name %></td>
+            <td><%= recipe.food.name %></td>
+            <td><%= recipe.quantity %></td>
+            <td><%= recipe.food.price %></td>
+            <td>
+              <%# <% if can? :update, @recipe %> 
+              <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe.id), method: :delete, class:"btn"%>
+              <button>
+              <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id:recipe.id), class:"btn"%>
+              </button>
+              <%# <% end %>
+          </td>
+            </td>
           </tr>
         <% end %>
       </tbody>
