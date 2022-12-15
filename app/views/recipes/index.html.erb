@@ -6,38 +6,40 @@
       <p>No recipe here, please add recipe</p>
     <% else %>
 
-      <tbody>
+      <section>
 
         <% @recipes.each do |recipe| %>
 
-          <div class="table">
+          <%= link_to recipe_path(recipe.id, recipe) do %>
 
-            <div class="no_margin row border border-secondary border border-secondary rounded">
+            <div class="table">
 
-              <div class="col-2 ">
+              <div class="no_margin row border border-secondary border border-secondary rounded">
 
-                <h4><%= recipe.name %></h3>
+                <div class="col-2 ">
+
+                  <h4><%= recipe.name %></h3>
+                  
+                  <%= link_to "Remove", recipe_path(recipe), data: {
+                          turbo_method: :delete,
+                          turbo_confirm: "Are you sure?"
+                        } %>
+                </div>
+
                 
-                <%= link_to "Remove", recipe_path(recipe), data: {
-                        turbo_method: :delete,
-                        turbo_confirm: "Are you sure?"
-                      } %>
+                <div class="col ">
+                    
+                      <%= recipe.description %>
+                    
+                </div>                
               </div>
-
-              
-              <div class="col ">
-
-                  <%= recipe.description %>
-              </div>
-              
-
             </div>
 
-          </div>
+          <% end %>
 
         <% end %>
 
-      </tbody>
+      </section>
 
     <% end %>
-  </table>
+</table>

@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods.includes([:food])
   end
 
   def new
@@ -30,13 +31,9 @@ class RecipesController < ApplicationController
                 notice: 'Recipe was successfully destroyed.'
   end
 
-  def details
-    @recipe = Recipe.find(params[:id])
-  end
-
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :user_id)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :user_id, :public)
   end
 end

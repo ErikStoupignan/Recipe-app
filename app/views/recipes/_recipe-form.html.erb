@@ -20,7 +20,13 @@
     <%= form.text_field :description, class:'form-control' %>
   </div>
 
+  <div class="custom-control custom-checkbox">
+    <%= form.label :"public:" %>
+    <%= form.check_box :public %>
+  </div>
+
   <div class="mb-3">
+    <br>
     <%= form.submit :'Create Recipe', class:'btn btn-secondary' %>
   </div>
 <% end %>

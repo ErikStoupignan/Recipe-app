@@ -14,7 +14,7 @@
  *= require_self
  */
 
- .no_margin div a{
+ /* .no_margin div a{
   margin: 10px;
   padding: 0;
  }
@@ -22,4 +22,4 @@
  .no_margin div h4{
   margin: 10px;
   padding: 0;
- } 
+ }  */

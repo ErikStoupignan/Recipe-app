@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root 'public_recipes#index'
   resources :users, only: [:index, :show]
 
-  resources :foods, only: [:index]
-  resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  # resources :foods, only: [:index]
+  # resources :recipes, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   resources :public_recipes, only: [:index]
   resources :recipe_foods, only: [:new, :create, :destroy]
@@ -17,6 +17,6 @@ Rails.application.routes.draw do
     resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
   end
 
-  resources :foods, only: [:new, :create, :destroy] do
+  resources :foods, only: [:index, :new, :create, :destroy] do
   end
 end
