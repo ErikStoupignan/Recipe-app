@@ -19,13 +19,17 @@
   </thead>
 
   <tbody>
-    <% @recipe_foods.each do |sp_food| %>
+    <% @recipe_foods.each do |food| %>
       <tr>
-        <td><%= sp_food.food.name %></td>
-        <td><%= sp_food.quantity %><%= sp_food.food.measurement_unit %></td>
-        <td><span>$<%= sp_food.food.price * sp_food.quantity.to_i%></span></td>
+        <td><%= food.food.name %></td>
+        <td><%= food.quantity %> <%= food.food.measurement_unit %></td>
+        <td><span>$<%= food.food.price * food.quantity.to_i%></span></td>
       </tr>
     <% end %>
   </tbody>
 
 </table>
+
+<button class="btn btn-danger" >
+  <%= link_to 'Come back', recipe_path(@recipe.id)%>
+</button>

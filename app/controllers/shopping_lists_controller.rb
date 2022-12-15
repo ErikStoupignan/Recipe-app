@@ -1,15 +1,22 @@
 class ShoppingListsController < ApplicationController
   def index
-    # @food = Food.all
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_foods = @recipe.recipe_foods.includes([:food])
-    # @total = sum(@recipe_foods)
+    @total = get_total(@recipe_foods)
   end
 
   def create
-    # @food = Food.all
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_foods = @recipe.recipe_foods.includes([:food])
-    # @total = sum(@recipe_foods)
+  end
+
+  private
+
+  def get_total(recipe_foods)
+    output = 0
+    recipe_foods.each do |element|
+      output += element.food.price * element.quantity.to_i
+    end
+    output
   end
 end

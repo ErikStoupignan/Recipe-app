@@ -1,9 +1,4 @@
 class RecipeFoodsController < ApplicationController
-  # before_action :authenticate_user!, :set_recipe_food, only: %i[show edit update destroy]
-
-  # def index
-  #   @foods = Food.includes([:food])
-  # end
 
   def new
     @recipe = Recipe.find(params[:recipe_id])
@@ -15,14 +10,17 @@ class RecipeFoodsController < ApplicationController
     @recipe_food = @recipe.recipe_foods.create(recipe_foods_params)
 
     if @recipe_food.save
-      # redirect_to @recipe
-      render :new, notice: 'Food created sucessfully.'
-
+      redirect_to @recipe, notice: 'Recipe was added successfully.'
     else
-      render :new, notice: 'Failed to add food'
+      render :new, notice: 'Recipe was not added.'
     end
   end
 
+  def destroy
+    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food.destroy
+    redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Delete item successfully.'
+  end
 
   private
 

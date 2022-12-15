@@ -17,8 +17,7 @@ class RecipesController < ApplicationController
     @recipe.user_id = current_user.id
 
     if @recipe.save
-      redirect_to recipes_path,
-                  notice: 'Recipe was added successfully.'
+      redirect_to recipes_path, notice: 'Recipe was added successfully.'
     else
       render :new, alert: 'Failed to add recipe'
     end
@@ -27,8 +26,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
-    redirect_to recipes_path,
-                notice: 'Recipe was successfully destroyed.'
+    redirect_to recipes_path, notice: 'Recipe was successfully destroyed.'
   end
 
   private
