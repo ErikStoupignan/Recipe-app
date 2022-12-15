@@ -11,6 +11,8 @@ class FoodsController < ApplicationController
 
   def create
     @food = Food.new(food_params)
+    @food.user_id = current_user.id
+
     if @food.save
       redirect_to foods_path,
                   notice: 'Food was added successfully.'
@@ -27,6 +29,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price)
+    pp params.require(:food).permit(:name, :measurement_unit, :price)
   end
 end
