@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Rendering foods page', type: :feature do
-  describe "Render the view sign in" do
+  describe 'Render the view sign in' do
     it 'and review the status' do
       visit new_user_session_path
       expect(page).to have_http_status(200)
@@ -38,7 +38,7 @@ RSpec.describe 'Rendering foods page', type: :feature do
       User.create(
         name: 'John Smith',
         email: 'correct@email.com',
-        password: 'correctpassword',
+        password: 'correctpassword'
       )
 
       visit user_session_path
