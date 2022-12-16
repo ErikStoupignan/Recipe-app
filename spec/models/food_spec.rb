@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   describe 'Tests for Food model validation ' do
-    subject { @food=Food.new(name: 'Rice', measurement_unit: 'kg', price: 100) }
+    subject { @food = Food.new(name: 'Rice', measurement_unit: 'kg', price: 100) }
     before { subject.save }
 
     context 'confirm the food name' do
@@ -22,7 +22,7 @@ RSpec.describe Food, type: :model do
     end
 
     it 'name should be between 3 - 10 characters' do
-      subject.name = "This food is very delicious and you are going to love it."
+      subject.name = 'This food is very delicious and you are going to love it.'
       expect(subject).to_not be_valid
     end
 

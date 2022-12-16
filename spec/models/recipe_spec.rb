@@ -4,8 +4,8 @@ RSpec.describe Recipe, type: :model do
   describe 'Tests for Recipe model validation ' do
     @user = User.new(name: 'Erik', email: 'erik@gmail.com', password: '123456')
     subject do
-      @recipe=Recipe.new(user: @user, name: 'Sauce', description: 'This is my sauce recipe description',
-                 preparation_time: '10min', cooking_time: '45min', public: true)
+      @recipe = Recipe.new(user: @user, name: 'Sauce', description: 'This is my sauce recipe description',
+                           preparation_time: '10min', cooking_time: '45min', public: true)
     end
     before { subject.save }
 
@@ -26,7 +26,7 @@ RSpec.describe Recipe, type: :model do
     end
 
     it 'name should not exceed 250 characters' do
-      subject.name = "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      subject.name = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
       expect(subject).to_not be_valid
     end
 

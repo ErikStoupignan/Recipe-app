@@ -8,7 +8,7 @@ RSpec.describe RecipeFood, type: :model do
                          preparation_time: '10min', cooking_time: '50min', public: true)
     subject { RecipeFood.new(recipe: @recipe, food: @food, quantity: 5) }
     before { subject.save }
-    
+
     it 'quantity should not be nil' do
       subject.quantity = nil
       expect(subject).to_not be_valid
