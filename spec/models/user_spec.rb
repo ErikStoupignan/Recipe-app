@@ -24,7 +24,10 @@ RSpec.describe User, type: :model do
   it 'is not valid without password' do
     @user.password = ''
     expect(@user).not_to be_valid
-  # test associations.
+  end
+end
+
+RSpec.describe User, type: :model do
   describe 'associations' do
     it 'has many Recipes' do
       assc = described_class.reflect_on_association(:recipes)
@@ -37,7 +40,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # test validations.
   describe 'validations' do
     it 'is not valid without a name' do
       expect(User.new).to_not be_valid
