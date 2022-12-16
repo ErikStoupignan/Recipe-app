@@ -8,6 +8,7 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
     - "spec/**"
+    - "models/ability"
 
   DisplayCopNames: true
 
