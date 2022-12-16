@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_145901) do
     t.string "preparation_time"
     t.string "cooking_time"
     t.text "description"
-    t.boolean "public"
+    t.boolean "public", default: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_13_145901) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "role", default: "user", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
