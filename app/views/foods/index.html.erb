@@ -13,20 +13,24 @@
         </tr>
       </thead>
       <tbody>
+
         <% @foods.each do |food| %>
-          <tr>
-            <td><%= food.name %></td>
-            <td><%= food.measurement_unit %></td>
-            <td><span>$<%= food.price %></span></td>
-            <td>
-            
-            <%= link_to "Delete", food_path(food), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></td>
-                  
-          </tr>
+          <% if can? :read, food %>
+            <tr>
+              <td><%= food.name %></td>
+              <td><%= food.measurement_unit %></td>
+              <td><span>$<%= food.price %></span></td>
+              <td>
+              
+              <%= link_to "Delete", food_path(food), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    } %></td>
+                    
+            </tr>
+          <% end %>
         <% end %>
+
       </tbody>
     <% end %>
   </table>

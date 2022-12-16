@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
-# ruby '3.1.3'
+# ruby '3.1.2'
+ruby '3.1.3'
 
 # This Gem is for authorizathe users and control login
-gem 'devise'
 gem 'cancancan'
+
+gem 'devise'
 
 # This Gem allow use a file with the personal user and password database
 gem 'figaro'
@@ -58,8 +59,8 @@ gem 'bootsnap', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner'
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
 end
 
