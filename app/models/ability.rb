@@ -22,6 +22,8 @@ class Ability
       food.user.id == user.id
     end
     can %i[create ], :all
+
+
     #   return unless user.present?
     #   can :read, :all
     #   return unless user.admin?
