@@ -5,7 +5,23 @@ class Ability
 
   def initialize(user)
     # Define abilities for the user here. For example:
-    #
+
+    # can :manage, Food, user: user
+    # can :read, Recipe, user: user
+    # can :manage, Recipe, user: user
+
+    user ||= User.new 
+    can :read, Recipe do |recipe|
+      recipe.public? || recipe.user == user
+    end
+    can %i[update destroy], Recipe do |recipe|
+      recipe.user == user
+    end
+    can :read, Food
+    can :destroy, Food do |food|
+      food.user.id == user.id
+    end
+    can %i[create ], :all
     #   return unless user.present?
     #   can :read, :all
     #   return unless user.admin?
