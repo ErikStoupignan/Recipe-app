@@ -8,7 +8,7 @@ AllCops:
     - "Rakefile"
     - "node_modules/**/*"
     - "spec/**"
-    - "models/ability"
+    - "app/models/ability"
 
   DisplayCopNames: true
 
@@ -59,4 +59,6 @@ Style/HashEachMethods:
 Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
+  Enabled: false
+Style/HashSyntax:
   Enabled: false
