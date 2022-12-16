@@ -2,8 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Food, type: :model do
   describe 'Tests for Food model validation ' do
-    subject { Food.new(name: 'Rice', measurement_unit: 'kg', price: 100) }
+    subject { @food=Food.new(name: 'Rice', measurement_unit: 'kg', price: 100) }
     before { subject.save }
+
+    context 'confirm the food name' do
+      it 'is invalid' do
+        expect(@food.name).to eq('Rice')
+      end
+    end
 
     it 'name should be present' do
       subject.name = nil
